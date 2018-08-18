@@ -1,10 +1,12 @@
 #include <stdio.h>
+int num1;
 
 int mul_natural(int num1, int num2);
 
+
 int main()
 {
-    int num1, num2, calc;
+    int num2, calc;
 
     printf("Enter with the value of number 1: ");
 
@@ -12,7 +14,7 @@ int main()
 
     printf("Enter with the value of number 2: ");
 
-    scanf("%d", &num1);
+    scanf("%d", &num2);
 
     calc = mul_natural(num1, num2);
 
@@ -23,9 +25,8 @@ int main()
 
 int mul_natural(int num1, int num2)
 {
-    
     if (num2 == 1)
         return num1;
     else
-        return num1 + (num1 * mul_natural(num1, (num2 - 1)));
+        return mul_natural(num1, num2 - 1) + num1;
 }
